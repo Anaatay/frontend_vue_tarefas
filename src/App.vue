@@ -8,6 +8,16 @@
           Frontend Vue.js - Aula 1
         </h1>
         <p class="mb-0 opacity-75">Introdução ao Vue.js</p>
+
+        <!--LINKS-->
+          <div class="nav-vertical2">
+            <p>Exercicios</p>
+            <ul class="links">
+              <li><router-link to="/produtos">Avaliação dos Produtos</router-link></li>
+              <li><router-link to="/tarefasavancada">Lista de Tarefas Avançada</router-link></li>
+            </ul>
+          </div>
+
       </div>
     </header>
 
@@ -16,7 +26,15 @@
       <div class="row">
         <div class="col-md-8">
           <!-- Componente principal da aula -->
-          <HelloWorld />
+          <!--<HelloWorld />-->
+          <Contador />
+          <ListaTarefas />
+          <CalculadoraIMC />
+
+          <div class="container">
+            <router-view></router-view>
+          </div>
+
         </div>
         
         <div class="col-md-4">
@@ -58,11 +76,18 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Contador from './components/Contador.vue'
+import ListaTarefas from './components/ListaTarefas.vue'
+import CalculadoraIMC from './components/CalculadoraIMC.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    Contador,
+    ListaTarefas,
+    CalculadoraIMC
   }
 }
 </script>
@@ -83,6 +108,51 @@ body {
 .container {
   flex: 1;
 }
+
+/**Exercicio */
+  .nav-vertical2 {
+    margin-top: 1.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    border-left: 3px solid #a3b8ff;
+    max-width: 280px;
+    min-width: 150px; 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-vertical p,
+  .nav-vertical2 p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav-vertical ul,
+  .nav-vertical2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-vertical li,
+  .nav-vertical2 li {
+    margin-bottom: 0.4rem;
+  }
+
+  .nav-vertical a,
+  .nav-vertical2 a {
+    color: #d6e0ff;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .nav-vertical a:hover,
+  .nav-vertical2 a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
 
 /* Animações suaves */
 .fade-enter-active,
